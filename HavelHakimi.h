@@ -7,11 +7,11 @@ class HavelHakimi {
 
 public:
 
-	bool graphRealization(std::vector<int> graph);
+	bool graphRealization(std::vector<int> sequence);
 
 private:
-	void removeZeros(std::vector<int> & graph);
-	void substractOne(std::vector<int> & graph, int n);
+	void removeZeros(std::vector<int> & sequence);
+	void substractOne(std::vector<int> & sequence, int n);
 };
 
 
