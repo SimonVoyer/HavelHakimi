@@ -1,36 +1,36 @@
 #include "HavelHakimi.h"
 
-bool HavelHakimi::graphRealization(std::vector<int> graph) {
+bool HavelHakimi::graphRealization(std::vector<int> sequence) {
 	int n;
-	std::sort(graph.begin(), graph.end(), std::greater<int>());
-	removeZeros(graph);
+	std::sort(sequence.begin(), sequence.end(), std::greater<int>());
+	removeZeros(sequence);
 
-	if (graph.empty()) {
+	if (sequence.empty()) {
 		return true;
 	}
 
 	
-	n = graph.front();
-	graph.erase(graph.begin());
+	n = sequence.front();
+	sequence.erase(sequence.begin());
 
-	if (n > graph.size()) {
+	if (n > sequence.size()) {
 		return false;
 	}
 
-	substractOne(graph, n);
-	graph.shrink_to_fit();
-	return graphRealization(graph);
+	substractOne(sequence, n);
+	sequence.shrink_to_fit();
+	return graphRealization(sequence);
 }
 
-void HavelHakimi::removeZeros(std::vector<int> & graph) {
-	while (!graph.empty() && graph.back() == 0) {
-		graph.pop_back();
+void HavelHakimi::removeZeros(std::vector<int> & sequence) {
+	while (!sequence.empty() && sequence.back() == 0) {
+		sequence.pop_back();
 	}
 }
 
-void HavelHakimi::substractOne(std::vector<int> & graph, int n) {
+void HavelHakimi::substractOne(std::vector<int> & sequence, int n) {
 	for (int i = 0; i < n; ++i) {
-		graph.at(i) = --graph.at(i);
+		sequence.at(i) = --sequence.at(i);
 	}
 }
 
